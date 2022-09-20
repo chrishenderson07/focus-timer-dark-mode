@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10rem;
+  height: 0.4rem;
+  border-radius: 12px;
+
+  outline: none;
+}
+
+/*darkMode*/
+.bgDarkMode {
+  background-color: hsla(240, 5%, 7%, 1);
+  color: white;
+}
+
+.iconsColorDarkMode path {
+  fill: white;
+}
+
+.iconsControlsHoverDarkMode button path {
+  transition: all 0.3s;
+}
+
+.iconsControlsHoverDarkMode button:hover path {
+  fill: #02799d;
+}
+
+.cardsBgDarkMode {
+  background-color: hsla(240, 6%, 17%, 1);
+  transition: background-color 0.3s;
+}
+
+.cardsBgDarkMode:hover {
+  background-color: #0a3442;
+}
+
+.cardsBgDarkModeHover {
+  background-color: #0a3442;
+}
+
+.darkRange::-webkit-slider-runnable-track {
+  width: 10rem;
+  height: 0.4rem;
+
+  background: white;
+  border-radius: 12px;
+}
+.darkRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: white;
+  border-radius: 50%;
+
+  margin-top: -5px;
+}
+
+/*End Dark Mode Classes*/
+
+/*Light Mode*/
+.bgLightMode {
+  background-color: #ffffff;
+  color: #29292e;
+}
+
+.iconsColorLightMode path {
+  fill: #323238;
+}
+
+.cardsBgLightMode,
+.cardsBgLightMode path {
+  background-color: #e1e1e6;
+  fill: #323238;
+  transition: all 0.2s;
+}
+.cardsBgLightMode:hover,
+.cardsBgLightMode:hover path {
+  background-color: #02799d;
+  fill: white;
+}
+
+.whiteRange::-webkit-slider-runnable-track {
+  width: 10rem;
+  height: 0.4rem;
+
+  background: #323238;
+  border-radius: 12px;
+}
+.whiteRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: #323238;
+  border-radius: 50%;
+
+  margin-top: -5px;
+}
+
+.cardsBgLightMode:hover .whiteRange::-webkit-slider-runnable-track,
+.cardsBgLightMode:hover .whiteRange::-webkit-slider-thumb {
+  background: white;
+}
+
+/*End Light Mode Classes*/
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  place-items: center;
+  gap: 19.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  font-size: 12.6rem;
+}
+
+.controls {
+  display: flex;
+  gap: 4rem;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.cards-wrapper .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+
+  padding: 2.4rem 2.7rem;
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 24px;
+}
+.modeButton {
+  position: absolute;
+  top: 6.4rem;
+  right: 6.4rem;
+}
+
+input {
+  width: 10rem;
+  height: 1.6rem;
+}
