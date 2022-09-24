@@ -2,6 +2,20 @@
 
 :root {
   font-size: 62.5%;
+
+  /*Color Dark Mode*/
+  --bg-darkmode: hsla(240, 5%, 7%, 1);
+  --bg-card-darkmode: hsla(240, 6%, 17%, 1);
+  --bg-card-hover-darkmode: #0a3442;
+  --icons-color-darkmode: white;
+  --range-darkmode: white;
+
+  /*Color Light Mode*/
+  --bg-lightmode: #ffffff;
+  --bg-card-lightmode: #e1e1e6;
+  --bg-card-hover-lightmode: #02799d;
+  --icons-color-lightmode: #323238;
+  --range-lightmode: #323238;
 }
 
 * {
@@ -28,112 +42,30 @@ body {
   display: grid;
   place-content: center;
   place-items: center;
+
+  background-color: var(--bg-darkmode);
 }
 
-input[type='range'] {
+input[type='range']::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
+  background-color: var(--range-darkmode);
   width: 10rem;
   height: 0.4rem;
   border-radius: 12px;
 
   outline: none;
+  border: none;
 }
 
-/*darkMode*/
-.bgDarkMode {
-  background-color: hsla(240, 5%, 7%, 1);
-  color: white;
-}
-
-.iconsColorDarkMode path {
-  fill: white;
-}
-
-.iconsControlsHoverDarkMode button path {
-  transition: all 0.3s;
-}
-
-.iconsControlsHoverDarkMode button:hover path {
-  fill: #02799d;
-}
-
-.cardsBgDarkMode {
-  background-color: hsla(240, 6%, 17%, 1);
-  transition: background-color 0.3s;
-}
-
-.cardsBgDarkMode:hover {
-  background-color: #0a3442;
-}
-
-.cardsBgDarkModeHover {
-  background-color: #0a3442;
-}
-
-.darkRange::-webkit-slider-runnable-track {
-  width: 10rem;
-  height: 0.4rem;
-
-  background: white;
-  border-radius: 12px;
-}
-.darkRange::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: white;
+  background-color: var(--range-darkmode);
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-
   margin-top: -5px;
-}
-
-/*End Dark Mode Classes*/
-
-/*Light Mode*/
-.bgLightMode {
-  background-color: #ffffff;
-  color: #29292e;
-}
-
-.iconsColorLightMode path {
-  fill: #323238;
-}
-
-.cardsBgLightMode,
-.cardsBgLightMode path {
-  background-color: #e1e1e6;
-  fill: #323238;
-  transition: all 0.2s;
-}
-.cardsBgLightMode:hover,
-.cardsBgLightMode:hover path {
-  background-color: #02799d;
-  fill: white;
-}
-
-.whiteRange::-webkit-slider-runnable-track {
-  width: 10rem;
-  height: 0.4rem;
-
-  background: #323238;
-  border-radius: 12px;
-}
-.whiteRange::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: #323238;
-  border-radius: 50%;
-
-  margin-top: -5px;
-}
-
-.cardsBgLightMode:hover .whiteRange::-webkit-slider-runnable-track,
-.cardsBgLightMode:hover .whiteRange::-webkit-slider-thumb {
-  background: white;
 }
 
 /*End Light Mode Classes*/
@@ -143,7 +75,7 @@ main {
   grid-template-columns: 1fr 1fr;
 
   place-items: center;
-  gap: 19.2rem;
+  gap: clamp(2rem, -5rem + 15vw, 19.2rem);
 }
 
 .hide {
@@ -160,12 +92,22 @@ main {
 .timer {
   display: flex;
   justify-content: center;
-  font-size: 12.6rem;
+  font-size: clamp(10rem, -2rem + 15vw, 12.6rem);
+  color: var(--icons-color-darkmode);
 }
 
 .controls {
   display: flex;
   gap: 4rem;
+}
+
+.controls path {
+  fill: var(--icons-color-darkmode);
+  transition: fill 0.3s;
+}
+
+.controls button:hover path {
+  fill: var(--bg-card-hover-darkmode);
 }
 
 .cards-wrapper {
@@ -184,7 +126,25 @@ main {
   width: 13.8rem;
   height: 15.2rem;
   border-radius: 24px;
+
+  background-color: var(--bg-card-darkmode);
+  transition: background-color 0.3s;
 }
+
+.card:hover {
+  background-color: var(--bg-card-hover-darkmode);
+}
+.card:hover path,
+.card:hover input::-webkit-slider-runnable-track,
+.card:hover input::-webkit-slider-thumb {
+  fill: white;
+  background: white;
+}
+
+.card path {
+  fill: var(--icons-color-darkmode);
+}
+
 .modeButton {
   position: absolute;
   top: 6.4rem;
@@ -193,5 +153,50 @@ main {
 
 input {
   width: 10rem;
-  height: 1.6rem;
+  height: 0.4rem;
+  border-radius: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.cardActive,
+.cardActive path {
+  background-color: var(--bg-card-hover-darkmode) !important;
+  fill: white;
+}
+
+.cardActive input::-webkit-slider-runnable-track,
+.cardActive input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+}
+
+/*Responsivity*/
+
+@media (max-width: 750px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .modeButton {
+    position: absolute;
+    top: 1.4rem;
+    right: 3.4rem;
+  }
+
+  .cards-wrapper .card {
+    gap: 2.2rem;
+
+    padding: 2rem 2.3rem;
+    width: 11.8rem;
+    height: 13.2rem;
+    border-radius: 24px;
+  }
 }
