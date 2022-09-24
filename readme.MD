@@ -4,7 +4,7 @@ h<h1 align="center">Focus Timer Dark Mode 🕛</h1>
 
 <h2 align="center">Tecnologias utilizadas</h2>
 
-[![My Skills](https://skills.thijs.gg/icons?i=js,html,css)](https://skills.thijs.gg)
+<h2 align="center">![My Skills](https://skills.thijs.gg/icons?i=js,html,css)</h2>
 
 <a href="https://chrishenderson07.github.io/focus-timer-dark-mode/"><h2 align="center">🔗Abrir e Rodar o projeto🔗</h2>
 
